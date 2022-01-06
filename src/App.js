@@ -9,6 +9,7 @@ import Visor from './components/Visor'
 export default () => {
     let [displayText, setDisplayText] = useState('---')
     let [previousNumber, setPreviousNumber] = useState(0)
+    let [previousOp, setPreviousOp] = useState([])
 
 
     function sequenciaOperacoes(defaultf) {
@@ -18,19 +19,19 @@ export default () => {
         switch (displayText[0]) {
             case '+':
                 setPreviousNumber(previousNumber + parseFloat(displayText.slice(1)))
-                // setDisplayText('+ ')
+                setPreviousOp(['+ ', parseFloat(displayText.slice(1))])
                 break
             case '-':
                 setPreviousNumber(previousNumber - parseFloat(displayText.slice(1)))
-                // setDisplayText('- ')
+                setPreviousOp(['- ', parseFloat(displayText.slice(1))])
                 break
             case '/':
                 setPreviousNumber(previousNumber / parseFloat(displayText.slice(1)))
-                // setDisplayText('/ ')
+                setPreviousOp(['/ ', parseFloat(displayText.slice(1))])
                 break
             case 'x':
                 setPreviousNumber(previousNumber * parseFloat(displayText.slice(1)))
-                // setDisplayText('x ')
+                setPreviousOp(['x ', parseFloat(displayText.slice(1))])
                 break
             default:
                 defaultf()
@@ -92,26 +93,47 @@ export default () => {
                 setPreviousNumber(NaN)
                 break
             case '=':
-                if (displayText == '---'||  previousNumber == NaN || displayText == '/ '|| displayText == 'x '|| displayText == '- '|| displayText == '+ '){
+                if (displayText == '---'|| displayText == '/ '|| displayText == 'x '|| displayText == '- '|| displayText == '+ '){
                     return
                 }
-                switch (displayText[0]) {
-                    case '+':
-                        setDisplayText(previousNumber + parseFloat(displayText.slice(1)))
-                        break
-                    case '-':
-                        setDisplayText(previousNumber - parseFloat(displayText.slice(1)))
-                        break
-                    case 'x':
-                        setDisplayText(previousNumber * parseFloat(displayText.slice(1)))
-                        break
-                    case '/':
-                        setDisplayText(previousNumber / parseFloat(displayText.slice(1)))
-                        break
+                if (['+','-','x','/'].includes(displayText[0])){
+                    switch (displayText[0]) {
+                        case '+':
+                            setDisplayText(previousNumber + parseFloat(displayText.slice(1)))
+                            setPreviousOp(['+ ', parseFloat(displayText.slice(1))])
+                            break
+                        case '-':
+                            setDisplayText(previousNumber - parseFloat(displayText.slice(1)))
+                            setPreviousOp(['- ', parseFloat(displayText.slice(1))])
+                            break
+                        case 'x':
+                            setDisplayText(previousNumber * parseFloat(displayText.slice(1)))
+                            setPreviousOp(['x ', parseFloat(displayText.slice(1))])
+                            break
+                        case '/':
+                            setDisplayText(previousNumber / parseFloat(displayText.slice(1)))
+                            setPreviousOp(['/ ', parseFloat(displayText.slice(1))])
+                            break
+                    }
+                } else if (previousOp) {
+                    setPreviousNumber(parseFloat(displayText))
+                    setDisplayText(previousOp)
                 }
                 if (displayText == 19090812){
                     setDisplayText('♡')
                 }
+                break
+            case 'del':
+                if (displayText == '---'||  displayText == 'NaN' || displayText == '/ '|| displayText == 'x '|| displayText == '- '|| displayText == '+ '){
+                    return
+                }
+                setDisplayText(String(displayText).slice(0, -1))
+                break
+            case 'mm':
+                if (displayText == '---'||  previousNumber == NaN || displayText == '/ '|| displayText == 'x '|| displayText == '- '|| displayText == '+ '){
+                    return
+                }
+                setDisplayText(parseFloat(displayText)*-1)
                 break
             default:
                 if (displayText == '---' || String(displayText) == 'NaN') {

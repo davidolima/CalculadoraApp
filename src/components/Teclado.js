@@ -9,15 +9,27 @@ function Teclado(props) {
         <View style={estilos.BotaoView}>
             <>
                 <View style={estilos.BotaoViewRow}>
-                    <TouchableHighlight label='1' onPress={() => props.handlingVisor(1)} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>1</Text>
+                    <TouchableHighlight label='C' onPress={() => props.handlingVisor('C')} style={estilos.BotaoGrande} >
+                        <Text style={estilos.BotaoText}>C</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight label='2' onPress={() => props.handlingVisor(2)} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>2</Text>
+                    <TouchableHighlight label='del' onPress={() => props.handlingVisor('del')} style={estilos.BotaoGrande} >
+                        <Text style={estilos.BotaoText}>Del</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight label='3' onPress={() => props.handlingVisor(3)} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>3</Text>
+                </View> 
+                <View style={estilos.BotaoViewRow}>
+                    <TouchableHighlight label='7' onPress={() => props.handlingVisor(7)} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>7</Text>
                     </TouchableHighlight>
+                    <TouchableHighlight label='8' onPress={() => props.handlingVisor(8)} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>8</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight label='9' onPress={() => props.handlingVisor(9)} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>9</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight label='/' onPress={() => props.handlingVisor('/')} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>÷</Text>
+                    </TouchableHighlight>
+                    
                 </View>
                 <View style={estilos.BotaoViewRow}>
                     <TouchableHighlight label='4' onPress={() => props.handlingVisor(4)} style={estilos.Botao} >
@@ -29,47 +41,61 @@ function Teclado(props) {
                     <TouchableHighlight label='6' onPress={() => props.handlingVisor(6)} style={estilos.Botao} >
                         <Text style={estilos.BotaoText}>6</Text>
                     </TouchableHighlight>
+                    <TouchableHighlight label='x' onPress={() => props.handlingVisor('x')} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>X</Text>
+                    </TouchableHighlight>
+                    
                 </View>
                 <View style={estilos.BotaoViewRow}>
-                    <TouchableHighlight label='7' onPress={() => props.handlingVisor(7)} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>7</Text>
+                    <TouchableHighlight label='1' onPress={() => props.handlingVisor(1)} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>1</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight label='8' onPress={() => props.handlingVisor(8)} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>8</Text>
+                    <TouchableHighlight label='2' onPress={() => props.handlingVisor(2)} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>2</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight label='9' onPress={() => props.handlingVisor(9)} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>9</Text>
+                    <TouchableHighlight label='3' onPress={() => props.handlingVisor(3)} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>3</Text>
                     </TouchableHighlight>
+                    <TouchableHighlight label='-' onPress={() => props.handlingVisor('-')} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>−</Text>
+                    </TouchableHighlight>
+                    
                 </View>
+                
                 <View style={estilos.BotaoViewRow}>
+                    <TouchableHighlight label='0' onPress={() => props.handlingVisor(0)} style={estilos.BotaoGrande} >
+                        <Text style={estilos.BotaoText}>0</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight label='.' onPress={() => props.handlingVisor('.')} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>·</Text>
+                    </TouchableHighlight>
+                    
                     <TouchableHighlight label='+' onPress={() => props.handlingVisor('+')} style={estilos.Botao} >
                         <Text style={estilos.BotaoText}>+</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight label='0' onPress={() => props.handlingVisor(0)} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>0</Text>
+                </View>
+                {/* <View style={estilos.BotaoViewRow}>
+                    <TouchableHighlight label='x' onPress={() => props.handlingVisor('x')} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>x</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight label='-' onPress={() => props.handlingVisor('-')} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>-</Text>
+                    <TouchableHighlight label='.' onPress={() => props.handlingVisor('.')} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>.</Text>
                     </TouchableHighlight>
                     <TouchableHighlight label='/' onPress={() => props.handlingVisor('/')} style={estilos.Botao} >
                         <Text style={estilos.BotaoText}>/</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight label='x' onPress={() => props.handlingVisor('x')} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>x</Text>
-                    </TouchableHighlight>
-                    
-                    <TouchableHighlight label='.' onPress={() => props.handlingVisor('.')} style={estilos.Botao} >
-                        <Text style={estilos.BotaoText}>.</Text>
-                    </TouchableHighlight>
-                </View>
+                </View>*/}
                 <View style={estilos.BotaoViewRow}>
-                    <TouchableHighlight label='C' onPress={() => props.handlingVisor('C')} style={estilos.BotaoGrande} >
-                        <Text style={estilos.BotaoText}>C</Text>
+                    {/* <TouchableHighlight label='0' onPress={() => props.handlingVisor('0')} style={estilos.Botao} >
+                        <Text style={estilos.BotaoText}>0</Text>
+                    </TouchableHighlight> */}
+                    <TouchableHighlight label='mm' onPress={() => props.handlingVisor('mm')} style={estilos.BotaoGrande} >
+                        <Text style={estilos.BotaoText}>+/-</Text>
                     </TouchableHighlight>
                     <TouchableHighlight label='=' onPress={() => props.handlingVisor('=')} style={estilos.BotaoGrande} >
                         <Text style={estilos.BotaoText}>=</Text>
                     </TouchableHighlight>
-                </View> 
+                </View>
             </>
         </View>
     )

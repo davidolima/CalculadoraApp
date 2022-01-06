@@ -4,12 +4,16 @@ import { Dimensions, StyleSheet } from "react-native"
 const estilos = StyleSheet.create({
     ViewPrincipal:
     {
-        alignItems: 'center',
+        alignItems: 'flex-start',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
         flex: 1,
         backgroundColor: '#F3B989',
     },
     BotaoView:
     {
+        // backgroundColor: '#9d9d9d',
         width: '100%',
         height: '90%',
         flexDirection: 'row',
@@ -18,6 +22,7 @@ const estilos = StyleSheet.create({
     },
     BotaoViewRow:
     {
+        // backgroundColor: '#1f1f1f',
         flexGrow: 1,
         marginTop: 5,
         flexDirection: 'row',
@@ -27,10 +32,11 @@ const estilos = StyleSheet.create({
     Botao:
     {
         borderColor: '#211206',
-        borderWidth: 1,
-        borderRadius: 3,
-        height: Dimensions.get('window').height/8,
-        width: Dimensions.get("window").width/3.3,
+        borderWidth: 0.5,
+        borderRadius: 50,
+        height: Dimensions.get('window').width/4.2,
+        // width: Dimensions.get("window").width/3.3,
+        width: Dimensions.get("window").width/4.2,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#7D512D',
@@ -38,10 +44,11 @@ const estilos = StyleSheet.create({
     BotaoGrande:
     {
         borderColor: '#211206',
-        borderWidth: 1,
-        borderRadius: 3,
-        height: Dimensions.get('window').height/8,
-        width: Dimensions.get("window").width/2.15,
+        borderWidth: 0.5,
+        borderRadius: 50,
+        height: Dimensions.get('window').width/4,
+        // width: Dimensions.get("window").width/2.15,
+        width: Dimensions.get("window").width/2.1,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#7D512D',  
@@ -59,7 +66,7 @@ const estilos = StyleSheet.create({
     {
         borderColor: '#211206',
         borderWidth: 5,
-        borderRadius: 3,
+        borderRadius: 20,
         width: '95%',
         height: '15%',
         maxHeight: '15%',
@@ -68,11 +75,14 @@ const estilos = StyleSheet.create({
         flexDirection:'row',
         flexWrap: 'nowrap',
         backgroundColor: '#FFF',
-        justifyContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
 
     },
     VisorText:
     {
+        marginRight: 15,
+        marginLeft: 15,
         fontSize: 72,
         color: '#000'
     },
