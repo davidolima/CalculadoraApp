@@ -1,31 +1,23 @@
-import React from "react"
 import { Dimensions, StyleSheet } from "react-native"
 
 const estilos = StyleSheet.create({
     ViewPrincipal:
     {
-        alignItems: 'flex-start',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
+        
+        alignItems: 'center',
+        flexWrap: 'nowrap',
+        justifyContent: 'flex-start',
         flex: 1,
         backgroundColor: '#F3B989',
     },
     BotaoView:
     {
         // backgroundColor: '#9d9d9d',
-        width: '100%',
-        height: '90%',
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        flexWrap: 'wrap',
-    },
-    BotaoViewRow:
-    {
-        // backgroundColor: '#1f1f1f',
-        flexGrow: 1,
-        marginTop: 5,
-        flexDirection: 'row',
+        flex:5,
+        alignItems: 'center',
+        // marginTop: '10%',
+        // padding: '1%',
         justifyContent: 'space-evenly',
         flexWrap: 'wrap',
     },
@@ -34,58 +26,39 @@ const estilos = StyleSheet.create({
         borderColor: '#211206',
         borderWidth: 0.5,
         borderRadius: 50,
-        height: Dimensions.get('window').width/4.2,
-        // width: Dimensions.get("window").width/3.3,
-        width: Dimensions.get("window").width/4.2,
+        margin: '0.5%',
+        marginTop: '2.75%',
+        flexGrow: 1,
+        // height: Dimensions.get('window').width/4.2,
+        // width: Dimensions.get("window").width/4.2,
+        height: Dimensions.get('window').height/9,
+        width: Dimensions.get("window").width/5,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#7D512D',
     },
     BotaoGrande:
     {
-        borderColor: '#211206',
-        borderWidth: 0.5,
-        borderRadius: 50,
-        height: Dimensions.get('window').width/4,
-        // width: Dimensions.get("window").width/2.15,
+        flexGrow: 1,
         width: Dimensions.get("window").width/2.1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#7D512D',  
     },
     BotaoText:
     {   
         includeFontPadding: false,
         textAlign: 'center',
         textAlignVertical: 'center',
-        // maxHeight: Dimensions.get('window').height/8 - 5,
         color:'#211206',
-        fontSize: 90
+        fontSize: Dimensions.get('window').height/12
     },
-    Visor:
+    VisorView:
     {
-        borderColor: '#211206',
-        borderWidth: 5,
-        borderRadius: 20,
         width: '95%',
-        height: '15%',
-        maxHeight: '15%',
-        marginTop: 15,
-        marginBottom: 10,
-        flexDirection:'row',
-        flexWrap: 'nowrap',
-        backgroundColor: '#FFF',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
+        marginTop: '2%',
+        marginBottom: '2%',
+        // backgroundColor: '#f00',
+        flexGrow: 1
+    },
 
-    },
-    VisorText:
-    {
-        marginRight: 15,
-        marginLeft: 15,
-        fontSize: 72,
-        color: '#000'
-    },
 })
 
 export default estilos

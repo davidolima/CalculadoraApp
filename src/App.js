@@ -10,6 +10,8 @@ export default () => {
     let [displayText, setDisplayText] = useState('---')
     let [previousNumber, setPreviousNumber] = useState(0)
     let [previousOp, setPreviousOp] = useState([])
+    let [fontSize, setFontSize] = useState(32)
+    const maxDisplayLength = 14
 
 
     function sequenciaOperacoes(defaultf) {
@@ -136,6 +138,10 @@ export default () => {
                 setDisplayText(parseFloat(displayText)*-1)
                 break
             default:
+                if (displayText.length >= maxDisplayLength){
+                    console.warn(`Permitido só até ${maxDisplayLength} caracteres` )
+                    return
+                }
                 if (displayText == '---' || String(displayText) == 'NaN') {
                     setDisplayText(numero)
                 } else {
@@ -146,9 +152,25 @@ export default () => {
         }
     }
 
+    function handlingFontSize(minSize, maxSize, lengthToDownscale, maxLength) {
+        if (fontSize > maxSize){
+            setFontSize(maxSize)
+        } else if (fontSize < minSize){
+            setFontSize(minSize)
+        }
+
+        if (displayText.length > lengthToDownscale) {
+            return (fontSize - displayText.length)
+        } else {
+            return fontSize
+        }
+    }
+
     return (
         <SafeAreaView style={estilos.ViewPrincipal}>
-            <Visor display={displayText} />
+            <SafeAreaView style={estilos.VisorView}>
+                <Visor display={displayText} fontSize={handlingFontSize(52,90,10, 14)}/>
+            </SafeAreaView>
             <Teclado handlingVisor={handlingVisor} />
         </SafeAreaView>
     )
